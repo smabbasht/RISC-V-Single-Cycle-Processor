@@ -17,4 +17,11 @@ module MUX_tb();
             At=64'd1024, Bt=64'd8192, St=1; // dummy case
         end
 
+    initial 
+        begin
+            $dumpfile("dump.vcd");
+            $dumpvars();
+            $display("At=%64b, Bt=%64b, Ot=%64b, St=%1b \n");
+        end
 endmodule
+
