@@ -15,6 +15,7 @@ module MUX_tb();
             At=64'd1024; Bt=64'd8192; St=0; // A should be passed i-e 1024
             #5
             At=64'd1024; Bt=64'd8192; St=1; // dummy case
+            $finish;
         end
 
     initial 
