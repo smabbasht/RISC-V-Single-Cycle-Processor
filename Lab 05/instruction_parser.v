@@ -1,11 +1,11 @@
-module parser (
+module instruction_parser (
     input [31: 0] instruction,
     output[ 6: 0] opcode,
     output[11: 7] rd,
     output[14:12] funct3,
     output[19:15] rs1,
     output[24:20] rs2,
-    output[31:25] funct7,
+    output[31:25] funct7
 
 );
     initial begin

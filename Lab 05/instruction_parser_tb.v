@@ -1,4 +1,4 @@
-module moduleName ();
+module instruction_parser_tb();
   reg  [31: 0] instruction;
   wire [ 6: 0] opcode;
   wire [11: 7] rd;
@@ -7,7 +7,7 @@ module moduleName ();
   wire [24:20] rs2;
   wire [31:25] funct7;
 
-    parser p1(.instruction(instruction), .opcode(opcode), .rd(rd), .funct3(funct3), .rs1(rs1), .rs2(rs2), .funct7(funct7));
+    instruction_parser p1(.instruction(instruction), .opcode(opcode), .rd(rd), .funct3(funct3), .rs1(rs1), .rs2(rs2), .funct7(funct7));
 
     initial begin
         instruction = 32'd214748364;
