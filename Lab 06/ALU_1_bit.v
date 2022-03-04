@@ -12,7 +12,7 @@ module ALU_1_bit (
     assign or1out = mux1out | mux2out;
     assign carryadderout = mux1out + mux2out + CarryIn;
 
-    assign CarryOut = (mux1out&mux2out3) | (mux1out&CarryIn) | (mux2out&CarryIn);
+    assign CarryOut = (mux1out&mux2out) | (mux1out&CarryIn) | (mux2out&CarryIn);
     assign Result = (ALUOp[1:0] == 2'b00) ? and1out: (ALUOp[1:0] == 2'b01) ? or1out: carryadderout;
 
 
