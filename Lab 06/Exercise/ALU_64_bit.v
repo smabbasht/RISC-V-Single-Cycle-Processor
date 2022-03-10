@@ -15,7 +15,7 @@ module ALU_64_bit(
                 4'd6:     O <= A - B; 
                 default:  O <=~(A|B);
             endcase
-            Zero = (O == 63'd0) ? 1'b1 : 1'b0;
+            Zero = (O == 64'b0) ? 1'b1 : 1'b0;
         end
     
 endmodule

@@ -1,0 +1,59 @@
+$date
+	Fri Mar 11 02:00:56 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module ALU_64_bit_tb $end
+$var wire 1 ! zero $end
+$var wire 64 " o [63:0] $end
+$var reg 6 # ALUop [5:0] $end
+$var reg 64 $ a [63:0] $end
+$var reg 64 % b [63:0] $end
+$scope module a64_1 $end
+$var wire 64 & A [63:0] $end
+$var wire 6 ' ALUOp [5:0] $end
+$var wire 64 ( B [63:0] $end
+$var reg 64 ) O [63:0] $end
+$var reg 1 ! Zero $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 )
+b0 (
+b0 '
+b101010 &
+b0 %
+b101010 $
+b0 #
+b0 "
+1!
+$end
+#50
+0!
+b101110 "
+b101110 )
+b101100 %
+b101100 (
+b1 #
+b1 '
+#100
+b1010110 "
+b1010110 )
+b10 #
+b10 '
+#150
+b1111111111111111111111111111111111111111111111111111111111111110 "
+b1111111111111111111111111111111111111111111111111111111111111110 )
+b110 #
+b110 '
+#200
+b1111111111111111111111111111111111111111111111111111111111010001 "
+b1111111111111111111111111111111111111111111111111111111111010001 )
+b1000 #
+b1000 '
