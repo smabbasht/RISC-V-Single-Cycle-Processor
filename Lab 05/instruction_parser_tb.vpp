@@ -1,0 +1,37 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000021460b22720 .scope module, "instruction_parser" "instruction_parser" 2 1;
+ .timescale 0 0;
+    .port_info 0 /INPUT 32 "instruction";
+    .port_info 1 /OUTPUT 7 "opcode";
+    .port_info 2 /OUTPUT 5 "rd";
+    .port_info 3 /OUTPUT 3 "funct3";
+    .port_info 4 /OUTPUT 5 "rs1";
+    .port_info 5 /OUTPUT 5 "rs2";
+    .port_info 6 /OUTPUT 7 "funct7";
+v0000021460b22f80_0 .net "funct3", 14 12, L_0000021460b51e50;  1 drivers
+v0000021460c7bdf0_0 .net "funct7", 31 25, L_0000021460b522b0;  1 drivers
+o0000021460b57038 .functor BUFZ 32, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; HiZ drive
+v0000021460c78a10_0 .net "instruction", 31 0, o0000021460b57038;  0 drivers
+v0000021460c78850_0 .net "opcode", 6 0, L_0000021460b22950;  1 drivers
+v0000021460c77e80_0 .net "rd", 11 7, L_0000021460b229f0;  1 drivers
+v0000021460c7ed50_0 .net "rs1", 19 15, L_0000021460b51b30;  1 drivers
+v0000021460b228b0_0 .net "rs2", 24 20, L_0000021460b519f0;  1 drivers
+L_0000021460b22950 .part o0000021460b57038, 0, 7;
+L_0000021460b229f0 .part o0000021460b57038, 7, 5;
+L_0000021460b51e50 .part o0000021460b57038, 12, 3;
+L_0000021460b51b30 .part o0000021460b57038, 15, 5;
+L_0000021460b519f0 .part o0000021460b57038, 20, 5;
+L_0000021460b522b0 .part o0000021460b57038, 25, 7;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "instruction_parser.v";

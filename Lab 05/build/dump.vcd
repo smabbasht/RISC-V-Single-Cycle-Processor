@@ -1,0 +1,32 @@
+$date
+	Tue Mar 08 13:31:06 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module MUX_tb $end
+$var wire 64 ! Ot [63:0] $end
+$var reg 64 " At [63:0] $end
+$var reg 64 # Bt [63:0] $end
+$var reg 1 $ St $end
+$scope module m1 $end
+$var wire 64 % A [63:0] $end
+$var wire 64 & B [63:0] $end
+$var wire 1 $ S $end
+$var wire 64 ' O [63:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b100000000000 '
+b1000000000000 &
+b100000000000 %
+0$
+b1000000000000 #
+b100000000000 "
+b100000000000 !
+$end

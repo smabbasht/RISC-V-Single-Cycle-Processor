@@ -1,0 +1,21 @@
+module ALU_64_bit(
+    input  [63:0] A,
+    input  [63:0] B,
+    input  [ 5:0] ALUOp, 
+    output reg [63:0] O, 
+    output reg Zero
+);
+
+    always@(*)
+        begin
+            case (ALUOp)
+                4'd0:     O <= A & B; 
+                4'd1:     O <= A | B; 
+                4'd2:     O <= A + B; 
+                4'd6:     O <= A - B; 
+                default:  O <=~(A|B);
+            endcase
+            Zero = (O == 63'd0) ? 1'b1 : 1'b0;
+        end
+    
+endmodule

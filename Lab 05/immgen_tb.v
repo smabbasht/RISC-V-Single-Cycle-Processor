@@ -1,8 +1,10 @@
+`include "immediate_generator.v"
+
 module immgen_tb();
     reg [31:0] instr;
     wire [63:0] imm_value;
 
-    immediate_generator imm1(.instruction(instr), .imm_value(imm_value));
+    immediate_generator imm1(.instruction(instr), .immed_value(imm_value));
 
     initial begin
         instr = 32'b11111111111100000000000000000000;
@@ -19,7 +21,7 @@ module immgen_tb();
 
     initial begin
     $dumpvars();
-    $dumpfile("dump.vcd");
+    $dumpfile("imm_gen_results.vcd");
     end
     
 endmodule
