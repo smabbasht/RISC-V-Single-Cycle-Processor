@@ -1,0 +1,68 @@
+$date
+	Fri Mar 11 12:47:48 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module registerFile_tb $end
+$var wire 64 ! ReadData2 [63:0] $end
+$var wire 64 " ReadData1 [63:0] $end
+$var reg 1 # RegWrite $end
+$var reg 64 $ WriteData [63:0] $end
+$var reg 1 % clk $end
+$var reg 5 & rd [4:0] $end
+$var reg 1 ' reset $end
+$var reg 5 ( rs1 [4:0] $end
+$var reg 5 ) rs2 [4:0] $end
+$scope module r1 $end
+$var wire 1 # RegWrite $end
+$var wire 64 * WriteData [63:0] $end
+$var wire 1 % clk $end
+$var wire 5 + rd [4:0] $end
+$var wire 1 ' reset $end
+$var wire 5 , rs1 [4:0] $end
+$var wire 5 - rs2 [4:0] $end
+$var reg 64 . ReadData1 [63:0] $end
+$var reg 64 / ReadData2 [63:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b11101 /
+b11110 .
+b11101 -
+b11110 ,
+b11110 +
+b11110 *
+b11101 )
+b11110 (
+0'
+b11110 &
+0%
+b11110 $
+1#
+b11110 "
+b11101 !
+$end
+#20
+b1100000000 "
+b1100000000 .
+b1100000000 $
+b1100000000 *
+1%
+#40
+0#
+0%
+#60
+b11100 "
+b11100 .
+b11100 (
+b11100 ,
+1#
+b11110 $
+b11110 *
+1%

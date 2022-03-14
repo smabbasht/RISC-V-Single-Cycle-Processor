@@ -1,0 +1,145 @@
+$date
+	Tue Mar 15 03:18:05 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module toplevel_tb $end
+$var wire 64 ! ReadData2 [63:0] $end
+$var wire 64 " ReadData1 [63:0] $end
+$var reg 32 # instruction [31:0] $end
+$scope module t1 $end
+$var wire 1 $ RegWrite $end
+$var wire 64 % WriteData [63:0] $end
+$var wire 1 & clk $end
+$var wire 32 ' instruction [31:0] $end
+$var wire 1 ( reset $end
+$var wire 5 ) rs2 [4:0] $end
+$var wire 5 * rs1 [4:0] $end
+$var wire 5 + rd [4:0] $end
+$var wire 7 , opcode [6:0] $end
+$var wire 7 - funct7 [6:0] $end
+$var wire 3 . funct3 [2:0] $end
+$var wire 64 / ReadData2 [63:0] $end
+$var wire 64 0 ReadData1 [63:0] $end
+$scope module i1 $end
+$var wire 32 1 instruction [31:0] $end
+$var wire 5 2 rs2 [24:20] $end
+$var wire 5 3 rs1 [19:15] $end
+$var wire 5 4 rd [11:7] $end
+$var wire 7 5 opcode [6:0] $end
+$var wire 7 6 funct7 [31:25] $end
+$var wire 3 7 funct3 [14:12] $end
+$upscope $end
+$scope module r1 $end
+$var wire 1 $ RegWrite $end
+$var wire 64 8 WriteData [63:0] $end
+$var wire 1 & clk $end
+$var wire 5 9 rd [4:0] $end
+$var wire 1 ( reset $end
+$var wire 5 : rs1 [4:0] $end
+$var wire 5 ; rs2 [4:0] $end
+$var reg 64 < ReadData1 [63:0] $end
+$var reg 64 = ReadData2 [63:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0x =
+b0x0 <
+b1 ;
+b10 :
+b11 9
+bz 8
+b0 7
+b0 6
+b110011 5
+b11 4
+b10 3
+b1 2
+b100010000000110110011 1
+b0x0 0
+b0x /
+b0 .
+b0 -
+b110011 ,
+b11 +
+b10 *
+b1 )
+z(
+b100010000000110110011 '
+z&
+bz %
+z$
+b100010000000110110011 #
+b0x0 "
+b0x !
+$end
+#5
+b0x0xx0 !
+b0x0xx0 /
+b0x0xx0 =
+b0x0x0x "
+b0x0x0x 0
+b0x0x0x <
+b10100 +
+b10100 4
+b10100 9
+b10101 *
+b10101 3
+b10101 :
+b10110 )
+b10110 2
+b10110 ;
+b1011010101000101000110011 #
+b1011010101000101000110011 '
+b1011010101000101000110011 1
+#10
+b0xxx00 !
+b0xxx00 /
+b0xxx00 =
+b0xxx0x "
+b0xxx0x 0
+b0xxx0x <
+b11110 +
+b11110 4
+b11110 9
+b11101 *
+b11101 3
+b11101 :
+b11100 )
+b11100 2
+b11100 ;
+b1110011101000111100110011 #
+b1110011101000111100110011 '
+b1110011101000111100110011 1
+#15
+b0xxx !
+b0xxx /
+b0xxx =
+b0x000x "
+b0x000x 0
+b0x000x <
+b10010 ,
+b10010 5
+b10110 +
+b10110 4
+b10110 9
+b101 .
+b101 7
+b10001 *
+b10001 3
+b10001 :
+b111 )
+b111 2
+b111 ;
+b1 -
+b1 6
+b10011110001101101100010010 #
+b10011110001101101100010010 '
+b10011110001101101100010010 1
