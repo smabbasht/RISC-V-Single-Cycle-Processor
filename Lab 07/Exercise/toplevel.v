@@ -15,6 +15,9 @@ module toplevel(
     wire [63:0] WriteData;
     wire clk, reset, RegWrite;
 
+    assign reset = 1'b0;
+    assign RegWrite = 1'b0;
+
     instruction_parser i1(
         .instruction(instruction), 
         .opcode(opcode), 
@@ -34,5 +37,4 @@ module toplevel(
         .RegWrite(RegWrite), 
         .ReadData1(ReadData1), 
         .ReadData2(ReadData2));
-
 endmodule

@@ -12,7 +12,7 @@ module toplevel_tb();
         #5
         instruction = 32'h016a8a33;     // add x20, x21, x22
         #5
-        instruction = 32'h01ce8f33;    // add 31, 30, 29
+        instruction = 32'h01ce8f33;    // add 30, 29, 28
         #5
         instruction = 32'd41474834; // Dummy Case
         $finish;
