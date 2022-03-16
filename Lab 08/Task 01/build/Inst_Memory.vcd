@@ -1,0 +1,43 @@
+$date
+	Wed Mar 16 01:13:29 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module insMem_tb $end
+$var wire 32 ! Instruction [31:0] $end
+$var reg 64 " Inst_address [63:0] $end
+$scope module im1 $end
+$var wire 64 # Inst_address [63:0] $end
+$var reg 32 $ Instruction [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1101000011000000101100001010 $
+b0 #
+b0 "
+b1101000011000000101100001010 !
+$end
+#5
+b10001000100000000111100001110 !
+b10001000100000000111100001110 $
+b100 "
+b100 #
+#10
+b10101000101000001001100010010 !
+b10101000101000001001100010010 $
+b1000 "
+b1000 #
+#15
+b11001000110000001011100010110 !
+b11001000110000001011100010110 $
+b1100 "
+b1100 #
+#20
+b1111 "
+b1111 #
