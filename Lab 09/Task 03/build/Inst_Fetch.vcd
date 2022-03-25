@@ -1,0 +1,87 @@
+$date
+	Fri Mar 25 11:26:48 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module Inst_Fetch_tb $end
+$var wire 32 ! instruction [31:0] $end
+$var reg 1 " clk $end
+$var reg 1 # reset $end
+$scope module if1 $end
+$var wire 1 " clk $end
+$var wire 1 # reset $end
+$var wire 32 $ instruction [31:0] $end
+$var wire 64 % PC_Out [63:0] $end
+$var wire 64 & PC_In [63:0] $end
+$scope module a1 $end
+$var wire 64 ' b [63:0] $end
+$var wire 64 ( c [63:0] $end
+$var wire 64 ) a [63:0] $end
+$upscope $end
+$scope module im1 $end
+$var wire 64 * Inst_address [63:0] $end
+$var reg 32 + Instruction [31:0] $end
+$upscope $end
+$scope module pc1 $end
+$var wire 64 , PC_In [63:0] $end
+$var wire 1 " clk $end
+$var wire 1 # reset $end
+$var reg 64 - PC_Out [63:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 -
+b100 ,
+b1101000011000000101100001010 +
+b0 *
+b0 )
+b100 (
+b100 '
+b100 &
+b0 %
+b1101000011000000101100001010 $
+1#
+0"
+b1101000011000000101100001010 !
+$end
+#10
+1"
+#15
+0#
+#20
+0"
+#30
+b10001000100000000111100001110 !
+b10001000100000000111100001110 $
+b10001000100000000111100001110 +
+b1000 &
+b1000 (
+b1000 ,
+b100 %
+b100 )
+b100 *
+b100 -
+1"
+#40
+0"
+#50
+b10101000101000001001100010010 !
+b10101000101000001001100010010 $
+b10101000101000001001100010010 +
+b1100 &
+b1100 (
+b1100 ,
+b1000 %
+b1000 )
+b1000 *
+b1000 -
+1"
+#60
+0"
