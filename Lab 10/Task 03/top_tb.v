@@ -6,6 +6,8 @@ module top_tb();
     wire [3:0] Operation;
     wire Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite;
 
+    top_module t1(.Opcode(Opcode), .Funct(Funct), .Operation(Operation), .Branch(Branch), .MemRead(MemRead), .MemWrite(MemWrite), .ALUSrc(ALUSrc), .RegWrite(RegWrite));
+
     initial begin
         Funct = 4'b0000; Opcode = 7'b1100011;  //Sb
         #10
@@ -24,7 +26,7 @@ module top_tb();
     end
 
     initial begin
-        $dumpfile("top.vcd")
+        $dumpfile("top.vcd");
         $dumpvars();
     end
 endmodule
