@@ -25,6 +25,6 @@ module PC_tb();
 
     initial begin
         $dumpfile("PC.vcd");
-        $dumpvars;
+        $dumpvars();
     end
 endmodule
