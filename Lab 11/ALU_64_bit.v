@@ -1,7 +1,7 @@
 module ALU_64_bit(
     input  [63:0] A,
     input  [63:0] B,
-    input  [ 5:0] ALUOp, 
+    input  [ 3:0] ALUOp, 
     output reg [63:0] O, 
     output reg Zero
 );

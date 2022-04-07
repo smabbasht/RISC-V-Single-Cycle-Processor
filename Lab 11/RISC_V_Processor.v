@@ -1,21 +1,22 @@
 // Include statements
-`include "Adder.v"
-`include "ALU_64_bit.v"
-`include "ALU_Control.v"
-`include "Control_Unit.v"
-`include "Data_Memory.v"
 `include "immediate_generator.v"
 `include "instruction_Memory.v"
 `include "instruction_parser.v"
-`include "MUX.v"
 `include "Program_Counter.v"
 `include "registerFile.v"
+`include "Control_Unit.v"
+`include "Data_Memory.v"
+`include "ALU_Control.v"
+`include "ALU_64_bit.v"
+`include "Adder.v"
+`include "MUX.v"
 
 // Top-lelvel module 
 module RISC_V_Processor(
-    input clk, reset;
+    input clk, reset
 );
     wire [63: 0] PC_In, PC_Out, ReadData1, ReadData2, WriteData, ALUresult, imm_data, ReadDataMem;
+    wire [63: 0] Adder1Out, Adder2Out, MuxBranchOut, MuxALUOut, MuxMemOut;
     wire [31: 0] instruction;
     wire [ 6: 0] Opcode, funct7;
     wire [ 4: 0] rs1, rs2, rd;
@@ -23,7 +24,6 @@ module RISC_V_Processor(
     wire [ 2: 0] funct3;
     wire [ 1: 0] ALUOp;
     wire Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite;
-    wire Adder1Out, Adder2Out, MuxBranchOut, MuxALUOut, MuxMemOut;
     
     Program_Counter PC(.clk(clk), .reset(reset), .PC_In(PC_In), .PC_Out(PC_Out));
     
@@ -45,9 +45,9 @@ module RISC_V_Processor(
     
     MUX muxALUSrc(.A(ReadData2), .B(imm_data), .O(MuxALUOut), .S(ALUSrc));
     
-    ALU_64_bit ALU64(.A(ReadData1), .B(muxALUout), .O(ALUresult), .Zero(Zero), .(ALUOp));
+    ALU_64_bit ALU64(.A(ReadData1), .B(MuxALUOut), .O(ALUresult), .Zero(Zero), .ALUOp(Operation));
     
-    Adder add2(.a(PC_Out), .b({imm_data[30:0], 1'b0}), .c(Adder2Out));
+    Adder add2(.a(PC_Out), .b(imm_data << 1), .c(Adder2Out));
     
     Data_Memory DMem(.Mem_Addr(ALUresult), .WriteData(ReadData2), .MemWrite(MemWrite), .MemRead(MemRead), .clk(clk), .Read_Data(ReadDataMem));
     
