@@ -24,7 +24,10 @@ module RISC_V_Processor(
     wire [ 2: 0] funct3;
     wire [ 1: 0] ALUOp;
     wire Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite;
-    
+//  reg  [63: 0] PC_In;
+
+//    initial PC_In = 64'b0;
+
     Program_Counter PC(.clk(clk), .reset(reset), .PC_In(PC_In), .PC_Out(PC_Out));
     
     Adder add1(.a(64'd4), .b(PC_Out), .c(Adder1Out));
@@ -52,10 +55,5 @@ module RISC_V_Processor(
     Data_Memory DMem(.Mem_Addr(ALUresult), .WriteData(ReadData2), .MemWrite(MemWrite), .MemRead(MemRead), .clk(clk), .Read_Data(ReadDataMem));
     
     MUX muxMemory(.A(ReadDataMem), .B(ALUresult), .O(MuxMemOut), .S(MemtoReg));
-    
-    
-
-
-    
     
 endmodule
