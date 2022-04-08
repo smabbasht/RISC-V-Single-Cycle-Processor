@@ -15,7 +15,7 @@
 module RISC_V_Processor(
     input clk, reset
 );
-    wire [63: 0] PC_In, PC_Out, ReadData1, ReadData2, WriteData, ALUresult, imm_data, ReadDataMem;
+    wire [63: 0] PC_Out, ReadData1, ReadData2, WriteData, ALUresult, imm_data, ReadDataMem;
     wire [63: 0] Adder1Out, Adder2Out, MuxBranchOut, MuxALUOut, MuxMemOut;
     wire [31: 0] instruction;
     wire [ 6: 0] Opcode, funct7;
@@ -24,13 +24,12 @@ module RISC_V_Processor(
     wire [ 2: 0] funct3;
     wire [ 1: 0] ALUOp;
     wire Branch, MemRead, MemtoReg, MemWrite, ALUSrc, RegWrite;
-//  reg  [63: 0] PC_In;
 
-//    initial PC_In = 64'b0;
-
-    Program_Counter PC(.clk(clk), .reset(reset), .PC_In(PC_In), .PC_Out(PC_Out));
+    Program_Counter PC(.clk(clk), .reset(reset), .PC_In(MuxBranchOut), .PC_Out(PC_Out));
     
+    immediate_generator Igen(.instruction(instruction), .immed_value(imm_data));
     Adder add1(.a(64'd4), .b(PC_Out), .c(Adder1Out));
+    Adder add2(.a(PC_Out), .b(imm_data << 1), .c(Adder2Out));
     
     MUX muxBranch(.A(Adder1Out), .B(Adder2Out), .O(MuxBranchOut), .S(Branch&Zero));
     
@@ -40,7 +39,6 @@ module RISC_V_Processor(
     
     registerFile rFile(.WriteData(WriteData), .rs1(rs1), .rs2(rs2), .rd(rd), .clk(clk), .reset(reset), .RegWrite(RegWrite), .ReadData1(ReadData1), .ReadData2(ReadData2));
     
-    immediate_generator Igen(.instruction(instruction), .immed_value(imm_data));
     
     Control_Unit c1(.Opcode(Opcode), .Branch(Branch), .MemRead(MemRead), .MemtoReg(MemtoReg), .MemWrite(MemWrite), .ALUSrc(ALUSrc), .RegWrite(RegWrite), .ALUOp(ALUOp));
     
@@ -49,8 +47,6 @@ module RISC_V_Processor(
     MUX muxALUSrc(.A(ReadData2), .B(imm_data), .O(MuxALUOut), .S(ALUSrc));
     
     ALU_64_bit ALU64(.A(ReadData1), .B(MuxALUOut), .O(ALUresult), .Zero(Zero), .ALUOp(Operation));
-    
-    Adder add2(.a(PC_Out), .b(imm_data << 1), .c(Adder2Out));
     
     Data_Memory DMem(.Mem_Addr(ALUresult), .WriteData(ReadData2), .MemWrite(MemWrite), .MemRead(MemRead), .clk(clk), .Read_Data(ReadDataMem));
     

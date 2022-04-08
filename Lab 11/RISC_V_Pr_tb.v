@@ -19,7 +19,7 @@ module RISC_V_Pr_tb();
     initial begin
       $dumpfile("RISC_V_Processor.vcd");
       $dumpvars();
-      #50 $finish;
+      #100 $finish;
     end
 
 endmodule
