@@ -39,10 +39,9 @@ module RISC_V_Processor(
     
     registerFile rFile(.WriteData(WriteData), .rs1(rs1), .rs2(rs2), .rd(rd), .clk(clk), .reset(reset), .RegWrite(RegWrite), .ReadData1(ReadData1), .ReadData2(ReadData2));
     
-    
     Control_Unit c1(.Opcode(Opcode), .Branch(Branch), .MemRead(MemRead), .MemtoReg(MemtoReg), .MemWrite(MemWrite), .ALUSrc(ALUSrc), .RegWrite(RegWrite), .ALUOp(ALUOp));
     
-    ALU_Control ac1(.ALUOp(ALUOp), .Funct(Funct), .Operation(Operation));
+    ALU_Control ac1(.ALUOp(ALUOp), .Funct({instruction[30], funct3}), .Operation(Operation));
     
     MUX muxALUSrc(.A(ReadData2), .B(imm_data), .O(MuxALUOut), .S(ALUSrc));
     
