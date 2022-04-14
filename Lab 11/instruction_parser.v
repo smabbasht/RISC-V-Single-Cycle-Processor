@@ -15,6 +15,5 @@ module instruction_parser (
     assign rs1    = instruction [19:15];
     assign rs2    = instruction [24:20];
     assign funct7 = instruction [31:25];
-
-
+    
 endmodule

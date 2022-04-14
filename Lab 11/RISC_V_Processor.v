@@ -44,11 +44,8 @@ module RISC_V_Processor(
     ALU_Control ac1(.ALUOp(ALUOp), .Funct({instruction[30], funct3}), .Operation(Operation));
     
     MUX muxALUSrc(.B(ReadData2), .A(imm_data), .O(MuxALUOut), .S(ALUSrc));
-    
     ALU_64_bit ALU64(.A(ReadData1), .B(MuxALUOut), .O(ALUresult), .Zero(Zero), .Operation(Operation));
     
     Data_Memory DMem(.Mem_Addr(ALUresult), .WriteData(ReadData2), .MemWrite(MemWrite), .MemRead(MemRead), .clk(clk), .Read_Data(ReadDataMem));
-    
-    MUX muxMemory(.A(ReadDataMem), .B(ALUresult), .O(MuxMemOut), .S(MemtoReg));
-    
+    MUX muxMemory(.A(ReadDataMem), .B(ALUresult), .O(MuxMemOut), .S(MemtoReg));    
 endmodule
