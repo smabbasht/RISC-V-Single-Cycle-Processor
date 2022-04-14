@@ -31,21 +31,21 @@ module RISC_V_Processor(
     Adder add1(.a(64'd4), .b(PC_Out), .c(Adder1Out));
     Adder add2(.a(PC_Out), .b(imm_data << 1), .c(Adder2Out));
     
-    MUX muxBranch(.A(Adder1Out), .B(Adder2Out), .O(MuxBranchOut), .S(Branch&Zero));
+    MUX muxBranch(.A(Adder2Out), .B(Adder1Out), .O(MuxBranchOut), .S(Branch&Zero));
     
     Instruction_Memory iMem(.Inst_address(PC_Out), .Instruction(instruction));
+
+    Control_Unit c1(.Opcode(Opcode), .Branch(Branch), .MemRead(MemRead), .MemtoReg(MemtoReg), .MemWrite(MemWrite), .ALUSrc(ALUSrc), .RegWrite(RegWrite), .ALUOp(ALUOp));
     
     instruction_parser iParser(.instruction(instruction), .opcode(Opcode), .rd(rd), .rs1(rs1), .rs2(rs2), .funct3(funct3), .funct7(funct7));
     
-    registerFile rFile(.WriteData(WriteData), .rs1(rs1), .rs2(rs2), .rd(rd), .clk(clk), .reset(reset), .RegWrite(RegWrite), .ReadData1(ReadData1), .ReadData2(ReadData2));
-    
-    Control_Unit c1(.Opcode(Opcode), .Branch(Branch), .MemRead(MemRead), .MemtoReg(MemtoReg), .MemWrite(MemWrite), .ALUSrc(ALUSrc), .RegWrite(RegWrite), .ALUOp(ALUOp));
+    registerFile rFile(.WriteData(MuxMemOut), .rs1(rs1), .rs2(rs2), .rd(rd), .clk(clk), .reset(reset), .RegWrite(RegWrite), .ReadData1(ReadData1), .ReadData2(ReadData2));
     
     ALU_Control ac1(.ALUOp(ALUOp), .Funct({instruction[30], funct3}), .Operation(Operation));
     
-    MUX muxALUSrc(.A(ReadData2), .B(imm_data), .O(MuxALUOut), .S(ALUSrc));
+    MUX muxALUSrc(.B(ReadData2), .A(imm_data), .O(MuxALUOut), .S(ALUSrc));
     
-    ALU_64_bit ALU64(.A(ReadData1), .B(MuxALUOut), .O(ALUresult), .Zero(Zero), .ALUOp(Operation));
+    ALU_64_bit ALU64(.A(ReadData1), .B(MuxALUOut), .O(ALUresult), .Zero(Zero), .Operation(Operation));
     
     Data_Memory DMem(.Mem_Addr(ALUresult), .WriteData(ReadData2), .MemWrite(MemWrite), .MemRead(MemRead), .clk(clk), .Read_Data(ReadDataMem));
     

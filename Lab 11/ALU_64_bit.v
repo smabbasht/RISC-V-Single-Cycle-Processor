@@ -1,14 +1,14 @@
 module ALU_64_bit(
     input  [63:0] A,
     input  [63:0] B,
-    input  [ 3:0] ALUOp, 
+    input  [ 3:0] Operation, 
     output reg [63:0] O, 
     output reg Zero
 );
 
     always@(*)
         begin
-            case (ALUOp)
+            case (Operation)
                 4'd0:     O <= A & B; 
                 4'd1:     O <= A | B; 
                 4'd2:     O <= A + B; 
